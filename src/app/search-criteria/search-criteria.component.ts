@@ -15,8 +15,10 @@ export class SearchCriteriaComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchTicketmaster() {
-    this.apiService.getTicketmmasterData().subscribe(response => {
+
+  searchTicketmaster(form) {
+    this.apiService.getTicketmmasterData(form.value.eventSearch).subscribe(response => {
+        this.eventInfo = response["data"];
         console.log(response);
     });
   }

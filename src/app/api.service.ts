@@ -9,7 +9,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getTicketmmasterData() {
-    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${this.ticketApiKey}`);
+  getTicketmmasterData(eventSearch: string) {
+    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${eventSearch}&apikey=${this.ticketApiKey}`);
   }
 }
