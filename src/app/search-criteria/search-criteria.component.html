@@ -1,11 +1,9 @@
-<!-- <button (click)="searchTicketmaster()">Get Ticket Data</button> -->
-
  <form #eventForm="ngForm" (ngSubmit)="searchTicketmaster(eventForm)">
     <label for="">What do you want to search for? </label>
     <input type="text" name="eventSearch" ngModel>
     <button>Search</button>
   </form>
-
-  <div *ngFor="let event of eventInfo">
-    <p>{{ event.name }}</p>
-  </div>
+  <event-list
+  [eventInfo] = "eventInfo"
+ ></event-list>
+ 

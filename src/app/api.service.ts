@@ -7,9 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
   ticketApiKey: string = "u0GkAWD7BmZxAM9fjkaula4mnTPTQXnX";
 
+  // eventInfo: any []= [];
+
   constructor(private http: HttpClient) { }
 
-  getTicketmmasterData(eventSearch: string) {
+  getTicketmasterData(eventSearch: string) {
     return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${eventSearch}&apikey=${this.ticketApiKey}`);
   }
 }
