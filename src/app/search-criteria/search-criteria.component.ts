@@ -18,7 +18,7 @@ export class SearchCriteriaComponent implements OnInit {
 
   searchTicketmaster(form) {
     this.apiService.getTicketmmasterData(form.value.eventSearch).subscribe(response => {
-        this.eventInfo = response["data"];
+        this.eventInfo = response["_embedded"].events;
         console.log(response);
     });
   }
