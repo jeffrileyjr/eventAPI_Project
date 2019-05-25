@@ -8,7 +8,7 @@ import { ApiService } from "../api.service";
 })
 export class SearchCriteriaComponent implements OnInit {
 
-  eventInfo: any[];
+  eventInfo: any[] = [];
 
   constructor(private apiService: ApiService) { }
 
@@ -17,9 +17,11 @@ export class SearchCriteriaComponent implements OnInit {
 
 
   searchTicketmaster(form) {
-    this.apiService.getTicketmmasterData(form.value.eventSearch).subscribe(response => {
+    this.apiService.getTicketmasterData(form.value.eventSearch).subscribe(response => {
         this.eventInfo = response["_embedded"].events;
         console.log(response);
+        return this.eventInfo;
     });
+    form.resetForm();
   }
 }

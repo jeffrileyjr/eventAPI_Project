@@ -1,3 +1,15 @@
-<p>
-  event-list works!
-</p>
+<div *ngFor="let event of eventInfo; index as i">
+  <p>{{ event.name }}</p>
+  <img src="{{ event.images[1].url }}">
+  <span (click)="addFavorite(index)">Fav</span>
+</div>
+
+<bucket-list-page *ngFor="let fav of favorites; index as i"
+  [favoriteEvent]="fav"
+  [index]="i"
+  (onAddFavorite)=addFavorite($event)
+></bucket-list-page>
+
+<!-- [favorites]="favorites" -->
+<!-- (click)="addFavorite(newFavorite)" -->
+<!-- <a [routerLink]="['/bucket-list-page']">Fav</a> -->
