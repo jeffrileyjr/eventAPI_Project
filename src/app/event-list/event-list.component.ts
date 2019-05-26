@@ -24,5 +24,6 @@ export class EventListComponent implements OnInit {
     console.log(event);
     console.log(this.favorites);
   }
- 
+
+
 }

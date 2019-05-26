@@ -19,13 +19,13 @@ export class BucketListPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  // addFavorite(index: number) {
-  //   this.onAddFavorite.emit(index);
-  // }
-
-  addFavorite(index: number, object: any) {
-    this.onAddFavorite.emit(this.favoriteEvent.target.attribute.innerHTML);
+  addFavorite(index: number) {
+    this.onAddFavorite.emit(index);    
   }
+
+  // addFavorite(index: number, object: any) {
+  //   this.onAddFavorite.emit(this.favoriteEvent.target.attribute.innerHTML);
+  // }
 
 
 }

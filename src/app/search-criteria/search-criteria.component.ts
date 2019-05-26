@@ -24,4 +24,6 @@ export class SearchCriteriaComponent implements OnInit {
     });
     form.resetForm();
   }
+
+  
 }

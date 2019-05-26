@@ -1,0 +1,38 @@
+header {
+    background-image: url("../../assets/band-crop.jpg");
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 35px;
+}
+
+html {
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+
+h1 {
+    font-family: 'Bungee Shade', cursive;
+    color: white;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    margin-left: 100px;
+}
+
+a {
+    font-family: 'Metrophobic', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    padding-left: 20px;
+    text-decoration: none;
+}

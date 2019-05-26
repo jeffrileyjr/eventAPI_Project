@@ -1,9 +1,11 @@
 <!-- <button (click)="searchTicketmaster()">Get Ticket Data</button> -->
 
 <form #eventForm="ngForm" (ngSubmit)="searchTicketmaster(eventForm)">
-  <label for="">What do you want to search for? </label>
-  <input type="text" name="eventSearch" ngModel>
-  <button>Search</button>
+  <label for="">What are you doing tonight?</label>
+  <div>
+    <input type="text" name="eventSearch" ngModel>
+    <button><i class="material-icons">search</i></button>
+  </div>
 </form>
 
 <event-list [eventInfo]="eventInfo"></event-list>
