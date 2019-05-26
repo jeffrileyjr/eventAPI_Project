@@ -17,11 +17,11 @@ section {
     position: relative;
 }
 
-.event, img {
+.event, .eventImg {
     border-radius: 10px;
 }
 
-img {
+.eventImg {
     height: 250px;
     width: 390px;
 }
@@ -31,14 +31,20 @@ p {
     font-size: 18px; 
 }
 
-i {
+i, .ticket {
     border: 1px solid black;
     border-radius: 50%;
     position: absolute; 
     bottom: 320px;
-    left: 380px;
-    color: gray;
     height: 25px;
     width: 25px;
     background-color: white;
+}
+
+i {    
+    left: 380px;
+}
+
+.ticket {
+    right: 380px;
 }

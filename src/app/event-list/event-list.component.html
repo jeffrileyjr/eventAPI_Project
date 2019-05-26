@@ -1,11 +1,9 @@
 <section>
-  <div *ngFor="let event of eventInfo; index as i"
-  class="event">
-    <img src="{{ event.images[1].url }}">
-    <div class="name">
-      <p>{{ event.name }}</p>
-      <i class="material-icons">favorite</i>
-    </div>
+  <div *ngFor="let event of eventInfo; index as i" class="event">
+    <img class="eventImg" src="{{ event.images[1].url }}">
+    <p>{{ event.name }}</p>
+    <i class="material-icons">favorite</i>
+    <a href="{{ event.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
   </div>
 </section>
 
