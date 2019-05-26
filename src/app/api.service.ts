@@ -15,12 +15,15 @@ export class ApiService {
     return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${eventSearch}&apikey=${this.ticketApiKey}`);
   }
 
-  favoriteEvent(index: number): any[] {
-    this.favorites.push(index);
-    return this.favorites;
+  favoriteEvent(favEvent) {
+    console.log(favEvent);
+    this.favorites.push(favEvent);
   }
 
-
+  listFavorites() {
+    console.log("show favs");
+    return this.favorites;
+  }
 
 }
  

@@ -5,23 +5,24 @@ section {
     /* margin-top: 30px; */
 }
 
-.event {
+.eventDiv {
     border: 1px solid white;
     margin: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-content: center;
     height: 340px;
     width: 390px;
     position: relative;
 }
 
-.event, .eventImg {
+.eventDiv, img {
     border-radius: 10px;
 }
 
-.eventImg {
+img {
     height: 250px;
     width: 390px;
 }
@@ -29,6 +30,7 @@ section {
 p {
     font-family: 'Metrophobic', sans-serif;
     font-size: 18px; 
+    margin: 0;
 }
 
 i, .ticket {

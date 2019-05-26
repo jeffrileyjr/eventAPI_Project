@@ -23,7 +23,7 @@ const appRoutes: Routes = [
     SearchCriteriaComponent,
     EventListComponent,
     BucketListPageComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
