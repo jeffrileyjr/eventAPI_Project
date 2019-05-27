@@ -8,6 +8,7 @@ import { SearchCriteriaComponent } from './search-criteria/search-criteria.compo
 import { EventListComponent } from './event-list/event-list.component';
 import { BucketListPageComponent } from './bucket-list-page/bucket-list-page.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

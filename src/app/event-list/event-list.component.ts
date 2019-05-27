@@ -9,12 +9,13 @@ import { ApiService } from '../api.service';
 export class EventListComponent implements OnInit {
 
   @Input() eventInfo: any[];
+  @Input() filteredData: any [];
 
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    // this.eventInfo = this.apiService.getTicketmasterData(eventInfo);
+
   }
 
 }

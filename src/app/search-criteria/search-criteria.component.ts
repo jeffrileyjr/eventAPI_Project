@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from "../api.service";
 
+
 @Component({
   selector: 'search-criteria',
   templateUrl: './search-criteria.component.html',
@@ -10,12 +11,19 @@ import { ApiService } from "../api.service";
 export class SearchCriteriaComponent implements OnInit {
 
   eventInfo: any[] = [];
+  // filteredData: any[] = [];
+
 
   constructor(private apiService: ApiService) { 
     // this.eventInfo = this.apiService.getTicketmasterData(eventSearch);
   }
 
   ngOnInit() {
+    this.apiService.loadTicketmasterData().subscribe(response => {
+      this.eventInfo = response["_embedded"].events;
+      console.log(response);
+      return this.eventInfo;
+  });
   }
 
 
@@ -27,4 +35,13 @@ export class SearchCriteriaComponent implements OnInit {
     });
     form.resetForm();
   }
+  filterByDate() {
+    
+  }
+  filterByPrice() {
+    
+  }
+filterByLocation  () {
+  
+}
 }

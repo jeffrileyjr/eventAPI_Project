@@ -3,7 +3,14 @@
     <input type="text" name="eventSearch" ngModel>
     <button>Search</button>
   </form>
+  <div>
+    <button>Date</button>
+    <button>Price</button>
+    <input type="text" placeholder="Filter by Location" name="query" ngModel>
+    <button (click)="filterByLocation(query)">Filter</button>
+  </div>
   <event-list
   [eventInfo] = "eventInfo"
+  [filteredData] = "filteredData"
  ></event-list>
  
