@@ -18,5 +18,9 @@ export class BucketListPageComponent implements OnInit {
     this.favorites = this.apiService.listFavorites();
   }
 
+  deleteFavorite(index: number) {
+    this.favorites = this.apiService.unfavoriteEvent(index);
+  }
 
+  
 }

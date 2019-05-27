@@ -10,6 +10,7 @@ import { ApiService } from '../api.service';
 export class EventListComponent implements OnInit {
 
   // show: boolean = false;
+  favorites: any[];
 
   @Input() eventInfo: any[];
 
@@ -21,7 +22,6 @@ export class EventListComponent implements OnInit {
   addFavorite(favEvent) {
     this.apiService.favoriteEvent(favEvent);
   }
-
 
 
 }
