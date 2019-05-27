@@ -35,6 +35,15 @@ export class SearchCriteriaComponent implements OnInit {
     });
     form.resetForm();
   }
+  changeLocation(event) {
+    this.apiService.changeLocationData(event);
+    this.apiService.loadTicketmasterData().subscribe(response => {
+      this.eventInfo = response["_embedded"].events;
+      console.log(response);
+      return this.eventInfo;
+    });
+  }
+
   filterByDate() {
     
   }

@@ -6,16 +6,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
   ticketApiKey: string = "u0GkAWD7BmZxAM9fjkaula4mnTPTQXnX";
-  tempLocation: string = "266"
+  tempLocation: string = "Detroit"
 
   // eventInfo: any []= [];
 
   constructor(private http: HttpClient) { }
   loadTicketmasterData() {
-    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?dmaId=${this.tempLocation}&apikey=${this.ticketApiKey}`);
+    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
   }
 
   getTicketmasterData(eventSearch: string) {
-    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${eventSearch}&dmaId=${this.tempLocation}&apikey=${this.ticketApiKey}`);
+    console.log(this.tempLocation);
+    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${eventSearch}&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
+  }
+  changeLocationData(event: string) {
+    this.tempLocation = event;
+    console.log(event);
+    return this.tempLocation;
   }
 }
