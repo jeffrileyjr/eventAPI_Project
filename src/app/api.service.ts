@@ -16,6 +16,6 @@ export class ApiService {
   }
 
   getTicketmasterData(eventSearch: string) {
-    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${eventSearch}&apikey=${this.ticketApiKey}`);
+    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${eventSearch}&dmaId=${this.tempLocation}&apikey=${this.ticketApiKey}`);
   }
 }
