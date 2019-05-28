@@ -9,7 +9,8 @@ import { ApiService } from "../api.service";
 })
 export class SearchCriteriaComponent implements OnInit {
   eventInfo: any[] = [];
-  // filteredData: any[] = [];
+  // filteredData: any[] = []
+  
 
   constructor(private apiService: ApiService) {
     // this.eventInfo = this.apiService.getTicketmasterData(eventSearch);
