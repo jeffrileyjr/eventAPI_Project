@@ -28,4 +28,13 @@ export class ApiService {
   getArtsAndTheatre() {
     return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=${this.arts}&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
   }
+    getMLB() {
+    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=MLB&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
+  }
+  getNFL() {
+    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=NFL&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
+  }
+  getMusic() {
+    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Music&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
+  }
 }
