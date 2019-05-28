@@ -2,6 +2,6 @@
     <p>{{ event.name }}</p>
     <p>{{event.dates.start.localDate}}</p>
     <p *ngIf='event.priceRanges === undefined; else elseBlock'>No Pricing Available</p>
-    <ng-template #elseBlock><p>Min Price: ${{event.priceRanges[0].min}}</p> <p>Max Price: ${{event.priceRanges[0].max}}</p></ng-template>
+    <ng-template #elseBlock><p>Tickets: ${{event.priceRanges[0].min}} - ${{event.priceRanges[0].max}}</ng-template>
     <img src="{{event.images[2].url}}" alt="">
   </div>
