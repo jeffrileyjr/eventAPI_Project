@@ -4,16 +4,17 @@ import { ApiService } from '../api.service';
 @Component({
   selector: 'event-list',
   templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.css'],
-  providers: []
+  styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
 
   favorites: any[];
 
   @Input() eventInfo: any[];
-  @Output() onToggleFav = new EventEmitter<any>();
+  // @Output() onToggleFav = new EventEmitter<any>();
   @Input() filteredData: any [];
+  @Output() onEventToggle = new EventEmitter<any>();
+
 
 
   constructor(private apiService: ApiService) { }
@@ -23,16 +24,21 @@ export class EventListComponent implements OnInit {
   }
 
   addFavorite(favEvent) {
+    console.log("add fav");
     this.apiService.favoriteEvent(favEvent);
   }
 
-  // toggle(index: number) {
-  //   this.eventInfo[index].isFavorite = !this.eventInfo[index].isFavorite;
-  //   console.log(index);
-  // }
 
   color (index: number) {
     console.log(index);
     this.eventInfo[index].clicked = true;
   }
+
+  
+  moreInfo(index: number): void {
+    this.onEventToggle.emit(index);
+  }
+
 }
+
+

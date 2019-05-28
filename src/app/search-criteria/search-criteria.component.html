@@ -1,33 +1,37 @@
- <nav>
-   <div class="dropdown">
-     <button class="dropbtn">Change Location</button>
-     <div class="dropdown_content">
-       <a href="#"(click)="changeLocation('Lansing')">Lansing</a>
-       <a href="#"(click)="changeLocation('Grand Rapids')">Grand Rapids</a>
-       <a href="#" (click)="changeLocation('Cleveland')">Cleveland</a>
-       <a href="#" (click)="changeLocation('Cincinnati')">Cincinnati</a>
-       <a href="#" (click)="changeLocation('Indianapolis')">Indianapolis</a>
-       <a href="#" (click)="changeLocation('Chicago')">Chicago</a>
-     </div>
-   </div>
- </nav>
- 
- <form #eventForm="ngForm" (ngSubmit)="searchTicketmaster(eventForm)">
-    <label for="">What are doing tonight? </label>
+<form #eventForm="ngForm" (ngSubmit)="searchTicketmaster(eventForm)">
+  <label for="">What are you doing tonight? </label>
+  <div class="searchDiv">
     <input type="text" name="eventSearch" placeholder="Search by team, artist, event, or venue" ngModel>
-    <button>Search</button>
-  </form>
-  <div>
-    <button (click)="filterByDate()">Sort by Date</button>
+    <button class="searchBtn"><i class="material-icons">search</i></button>
   </div>
-  <div>
-    <button (click)="fetchComedy()">Comedy</button>
-    <button (click)="fetchMLB()">MLB</button>
-    <button (click)="fetchNFL()">NFL</button>
-    <button (click)="fetchMusic()">Music</button>
-    <button (click)="fetchTheatre()">Theatre</button>
+</form>
+
+<nav>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="material-icons">location_on</i>  DETROIT  <i class="material-icons">arrow_drop_down</i></button>
+    <div class="dropdown_content">
+      <a (click)="changeLocation('Lansing')">Lansing</a>
+      <a (click)="changeLocation('Grand Rapids')">Grand Rapids</a>
+      <a (click)="changeLocation('Cleveland')">Cleveland</a>
+      <a (click)="changeLocation('Cincinnati')">Cincinnati</a>
+      <a (click)="changeLocation('Indianapolis')">Indianapolis</a>
+      <a (click)="changeLocation('Chicago')">Chicago</a>
+    </div>
   </div>
-  <event-list
-  [eventInfo] = "eventInfo"
- ></event-list>
- 
+  <div class="dateFilterDiv">
+    <button class="dateFilterBtn" (click)="filterByDate()">SORT BY DATE</button>
+  </div>
+</nav>
+
+
+<div class="genreDiv">
+  <div class="genreBtn" (click)="fetchNFL()" style="background-image: url('https://seatgeek.com/images/performers-landscape/generic-nfl-football-ea572f/677209/huge.jpg')"><p>NFL</p></div>
+  <div class="genreBtn" (click)="fetchMLB()" style="background-image: url('https://seatgeek.com/images/performers-landscape/generic-mlb-baseball-65710f/677213/huge.jpg')"><p>MLB</p></div>
+  <div class="genreBtn" (click)="fetchComedy()" style="background-image: url('https://seatgeek.com/images/performers-landscape/generic-comedy-a8132c/677157/huge.jpg')"><p>COMEDY</p></div>
+  <div class="genreBtn" (click)="fetchMusic()" style="background-image: url('https://seatgeek.com/images/performers-landscape/generic-concerts-871641/677165/huge.jpg')"><p>MUSIC</p></div>
+  <div class="genreBtn" (click)="fetchTheatre()" style="background-image: url('https://seatgeek.com/images/performers-landscape/generic-broadway-shows-36cdbe/677158/huge.jpg')"><p>THEATRE</p></div>
+</div>
+
+<h1>RECOMMENDED FOR YOU</h1>
+
+<event-list [eventInfo]="eventInfo" (onEventToggle)="toggleDisplay($event)"></event-list>

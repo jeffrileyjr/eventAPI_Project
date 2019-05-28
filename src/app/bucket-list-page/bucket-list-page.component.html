@@ -14,9 +14,14 @@
         <p class="name">{{ fav.name }}</p>
         <img class="eventImg" src="{{ fav.images[1].url }}">
         <p>{{ fav.dates.start.localDate }}</p>
-        <p>{{ fav._embedded.venues[0].city.name }}, {{ fav._embedded.venues[0].state.stateCode }}
-            {{ fav._embedded.venues[0].country.countryCode }}</p>
-        <i class="material-icons favRed" (click)="deleteFavorite(index)">favorite</i>
+        <p>{{ fav._embedded.venues[0].city.name }}, {{ fav._embedded.venues[0].state.stateCode }} {{ fav._embedded.venues[0].country.countryCode }}</p>
+        <i class="material-icons favRed" (click)="deleteFavorite(i)">favorite</i>
         <a href="{{ fav.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
     </div>
 </section>
+
+
+<!-- <div *ngIf="favorites[i].shouldBeHidden">
+        <li *ngIf='fav.priceRanges === undefined; else elseBlock'>No Pricing Available</li>
+        <ng-template #elseBlock><li>Tickets: ${{fav.priceRanges[0].min}} - ${{fav.priceRanges[0].max}}</li></ng-template>
+      </div> -->

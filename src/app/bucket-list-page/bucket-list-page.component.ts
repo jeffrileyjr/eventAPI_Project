@@ -10,12 +10,14 @@ import { ActivatedRoute } from "@angular/router";
 export class BucketListPageComponent implements OnInit {
 
   @Input() favorites: any;
-  // favorites: any[];
+  favorites: any[];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit() {
     this.favorites = this.apiService.listFavorites();
+    console.log("list fav");
+    
   }
 
   deleteFavorite(index: number) {

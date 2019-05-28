@@ -5,10 +5,12 @@ import { ApiService } from "../api.service";
   selector: "search-criteria",
   templateUrl: "./search-criteria.component.html",
   styleUrls: ["./search-criteria.component.css"],
-  providers: [ApiService]
+  providers: [  ]
 })
 export class SearchCriteriaComponent implements OnInit {
   eventInfo: any[] = [];
+  shouldBeHidden: boolean = false;
+
   // filteredData: any[] = []
   
   constructor(private apiService: ApiService) { }
@@ -97,6 +99,10 @@ export class SearchCriteriaComponent implements OnInit {
       console.log(response);
       return this.eventInfo;
     });
+  }
+
+  toggleDisplay(index: number): void {
+    this.eventInfo[index].shouldBeHidden = !this.eventInfo[index].shouldBeHidden;
   }
   
 }
