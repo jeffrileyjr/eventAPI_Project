@@ -54,6 +54,7 @@ export class ApiService {
   }
 
   unfavoriteEvent(index: number) {
+    console.log(index);
     this.favorites.splice(index, 1);
     return this.favorites;
   }

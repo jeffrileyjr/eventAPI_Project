@@ -7,7 +7,8 @@
     <img src="{{ event.images[1].url }}">
     <p>{{ event.dates.start.localDate }}</p>
     <p *ngIf='event.priceRanges === undefined; else elseBlock'>No Pricing Available</p>
-    <ng-template #elseBlock><p>Tickets: ${{event.priceRanges[0].min}} - ${{event.priceRanges[0].max}}</ng-template>
+    <!-- added currency pipe below to better show ticket value -->
+    <ng-template #elseBlock><p>Tickets: {{event.priceRanges[0].min | currency }} - {{event.priceRanges[0].max | currency }}</ng-template>
     <p>{{ event._embedded.venues[0].city.name }}, {{ event._embedded.venues[0].state.stateCode }} {{ event._embedded.venues[0].country.countryCode }}</p>
     <i class="material-icons" (click)="addFavorite(event)">favorite</i>
     <a href="{{ event.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
