@@ -65,8 +65,8 @@ export class SearchCriteriaComponent implements OnInit {
       }
     });
   }
-  fetchArtsAndTheatre() {
-    this.apiService.getArtsAndTheatre().subscribe(response => {
+  fetchComedy() {
+    this.apiService.getComedy().subscribe(response => {
       this.eventInfo = response["_embedded"].events;
       console.log(response);
       return this.eventInfo;
@@ -88,6 +88,13 @@ export class SearchCriteriaComponent implements OnInit {
   }
   fetchMusic() {
     this.apiService.getMusic().subscribe(response => {
+      this.eventInfo = response["_embedded"].events;
+      console.log(response);
+      return this.eventInfo;
+    });
+  }
+  fetchTheatre() {
+    this.apiService.getTheatre().subscribe(response => {
       this.eventInfo = response["_embedded"].events;
       console.log(response);
       return this.eventInfo;

@@ -25,8 +25,8 @@ export class ApiService {
     console.log(event);
     return this.tempLocation;
   }
-  getArtsAndTheatre() {
-    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=${this.arts}&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
+  getComedy() {
+    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Comedy&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
   }
     getMLB() {
     return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=MLB&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
@@ -36,5 +36,8 @@ export class ApiService {
   }
   getMusic() {
     return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Music&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
+  }
+  getTheatre() {
+    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Theatre&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
   }
 }

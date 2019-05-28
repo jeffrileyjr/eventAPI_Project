@@ -19,13 +19,13 @@
   </form>
   <div>
     <button (click)="filterByDate()">Sort by Date</button>
-    <button (click)="filterByPrice()">Sort by Price</button>
   </div>
   <div>
-    <button (click)="fetchArtsAndTheatre()">Arts & Theatre</button>
+    <button (click)="fetchComedy()">Comedy</button>
     <button (click)="fetchMLB()">MLB</button>
     <button (click)="fetchNFL()">NFL</button>
     <button (click)="fetchMusic()">Music</button>
+    <button (click)="fetchTheatre()">Theatre</button>
   </div>
   <event-list
   [eventInfo] = "eventInfo"
