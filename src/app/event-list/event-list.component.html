@@ -1,3 +1,22 @@
-<p>
-  event-list works!
-</p>
+<section>
+  <div *ngFor="let event of eventInfo; index as i" class="eventDiv">
+    <p class="name">{{ event.name }}</p>
+    <img src="{{ event.images[1].url }}">
+    <p>{{ event.dates.start.localDate }}</p>
+    <p>{{ event._embedded.venues[0].city.name }}, {{ event._embedded.venues[0].state.stateCode }} {{ event._embedded.venues[0].country.countryCode }}</p>
+    <ul>
+      <button (click)="moreInfo(i)">More Info...</button>
+    <li *ngIf="eventInfo[i].shouldBeHidden">{{ event._embedded.venues[0].name }}</li>
+    <li *ngIf="eventInfo[i].shouldBeHidden">Address: {{ event._embedded.venues[0].address.line1 }}</li>
+    <div *ngIf="eventInfo[i].shouldBeHidden">
+        <li *ngIf='event.priceRanges === undefined; else elseBlock'>No Pricing Available</li>
+        <ng-template #elseBlock><li>Tickets: ${{event.priceRanges[0].min}} - ${{event.priceRanges[0].max}}</li></ng-template>
+      </div>
+    <li *ngIf="eventInfo[i].shouldBeHidden">{{ event.promoter.description }}</li>
+    </ul>
+    <i class="material-icons" (click)="[addFavorite(event), color(i)]" [ngClass]="{'favRed': event.clicked}">favorite</i>
+    <a href="{{ event.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
+  </div>
+</section>
+
+
