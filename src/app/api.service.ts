@@ -59,6 +59,5 @@ export class ApiService {
     return this.favorites;
   }
 
-
 }
  

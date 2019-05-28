@@ -9,8 +9,9 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class BucketListPageComponent implements OnInit {
 
+  shouldBeHidden: boolean = false;
+
   @Input() favorites: any;
-  favorites: any[];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
@@ -23,6 +24,8 @@ export class BucketListPageComponent implements OnInit {
   deleteFavorite(index: number) {
     this.favorites = this.apiService.unfavoriteEvent(index);
   }
-
   
+  moreInfoFav(index: number): void {
+    this.favorites[index].shouldBeHidden = !this.favorites[index].shouldBeHidden;
+  }
 }
