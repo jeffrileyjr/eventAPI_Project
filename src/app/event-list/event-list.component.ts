@@ -9,7 +9,7 @@ import { ApiService } from '../api.service';
 export class EventListComponent implements OnInit {
 
   favorites: any[];
-  showing: boolean = false;
+  showing: boolean = true;
   @Input() eventInfo: any[];
   // @Output() onToggleFav = new EventEmitter<any>();
   @Input() filteredData: any [];
@@ -37,11 +37,11 @@ export class EventListComponent implements OnInit {
   
   moreInfo(index: number): void {
     this.onEventToggle.emit(index);
-    this.showing = !this.showing;
+    this.showing[index] = !this.showing[index];
   }
   goBack(index: number):void {
     this.onEventToggle.emit(index);
-    this.showing = !this.showing;
+    this.showing[index] = !this.showing[index];
   }
 
 }
