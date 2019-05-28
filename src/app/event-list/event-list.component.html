@@ -1,4 +1,5 @@
 <div *ngFor="let event of eventInfo">
     <p>{{ event.name }}</p>
+    <p>{{event.dates.start.localDate}}</p>
     <img src="{{event.images[2].url}}" alt="">
   </div>

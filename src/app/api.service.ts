@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
   ticketApiKey: string = "u0GkAWD7BmZxAM9fjkaula4mnTPTQXnX";
-  tempLocation: string = "Detroit"
+  tempLocation: string = "Detroit";
+  arts: string = "Arts & Theatre";
 
   // eventInfo: any []= [];
 
@@ -24,5 +25,7 @@ export class ApiService {
     console.log(event);
     return this.tempLocation;
   }
-  
+  getArtsAndTheatre() {
+    return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=${this.arts}&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
+  }
 }

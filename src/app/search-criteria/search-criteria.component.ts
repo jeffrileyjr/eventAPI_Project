@@ -67,5 +67,13 @@ export class SearchCriteriaComponent implements OnInit {
       }
     })
   }
+  fetchArtsAndTheatre() {
+    this.apiService.getArtsAndTheatre().subscribe(response => {
+      this.eventInfo = response["_embedded"].events;
+      console.log(response);
+      return this.eventInfo;
+  });
+}
+
 }
 
