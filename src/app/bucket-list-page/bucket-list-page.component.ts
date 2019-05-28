@@ -12,13 +12,14 @@ export class BucketListPageComponent implements OnInit {
   shouldBeHidden: boolean = false;
 
   @Input() favorites: any;
+  // apiService: any;
+  // favorites: any[];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit() {
     this.favorites = this.apiService.listFavorites();
-    console.log("list fav");
-    
+    console.log("list favs");   
   }
 
   deleteFavorite(index: number) {

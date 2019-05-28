@@ -31,13 +31,15 @@ p {
     font-family: 'Metrophobic', sans-serif;
     font-size: 18px; 
     margin: 0;
+    z-index: 1;
 }
 
 .buttonDiv {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 20px;
+    z-index: 3;
 }
 
 i, .ticket {
@@ -46,7 +48,7 @@ i, .ticket {
     height: 25px;
     width: 25px;
     background-color: white;
-}
+} 
 
 i.favRed {
     color: red;
@@ -62,4 +64,13 @@ button {
     padding: 10px;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.moreDetails {
+    background-color: cornsilk;
+    height: 340px;
+    width: 390px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
 }
