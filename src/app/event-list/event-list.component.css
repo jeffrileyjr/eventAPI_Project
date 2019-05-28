@@ -54,3 +54,11 @@ i.favRed {
 .ticket {
     right: 380px;
 }
+.moreDetails {
+    background-color: cornsilk;
+    height: 100%;
+    width: 90%;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}
