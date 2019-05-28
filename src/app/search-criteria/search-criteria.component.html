@@ -18,8 +18,8 @@
     <button>Search</button>
   </form>
   <div>
-    <button>Date</button>
-    <button>Price</button>
+    <button (click)="filterByDate()">Date</button>
+    <button (click)="filterByPrice()">Price</button>
   </div>
   <event-list
   [eventInfo] = "eventInfo"
