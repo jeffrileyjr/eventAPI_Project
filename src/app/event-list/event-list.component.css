@@ -45,6 +45,7 @@ i, .ticket {
 
 i {    
     left: 380px;
+    z-index: 2;
 }   
 
 i.favRed {
@@ -53,12 +54,13 @@ i.favRed {
 
 .ticket {
     right: 380px;
+    z-index: 2;
 }
 .moreDetails {
     background-color: cornsilk;
-    height: 100%;
-    width: 90%;
+    height: 340px;
+    width: 390px;
     position: absolute;
     top: 0;
-    z-index: 3;
+    z-index: 1;
 }
