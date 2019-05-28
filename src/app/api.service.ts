@@ -5,11 +5,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
+
   ticketApiKey: string = "u0GkAWD7BmZxAM9fjkaula4mnTPTQXnX";
   tempLocation: string = "Detroit";
   arts: string = "Arts & Theatre";
 
   // eventInfo: any []= [];
+  favorites: any[] = [];
 
   constructor(private http: HttpClient) { }
   loadTicketmasterData() {
@@ -40,4 +42,21 @@ export class ApiService {
   getTheatre() {
     return this.http.get(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Theatre&city=${this.tempLocation}&apikey=${this.ticketApiKey}`);
   }
+
+  favoriteEvent(favEvent) {
+    console.log(favEvent);
+    this.favorites.push(favEvent);
+  }
+
+  listFavorites() {
+    console.log("show favs");
+    return this.favorites;
+  }
+
+  unfavoriteEvent(index: number) {
+    this.favorites.splice(index, 1);
+    return this.favorites;
+  }
+
 }
+ 

@@ -31,3 +31,45 @@
 .dropdown:hover .dropdown_content {
   display: block;
 }
+html {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    position: absolute;
+    top: 125px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+label {
+    font-family: 'Bungee Shade', cursive;
+    color: white;
+    font-size: 40px;
+}
+
+div {
+    display: flex;
+    align-items: center;
+}
+
+input, button {
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+}
+
+input {
+    width: 700px;
+}
+
+button {
+    width: 50px;
+    margin-left: 20px;
+    background-color: white;
+}

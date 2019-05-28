@@ -101,4 +101,6 @@ export class SearchCriteriaComponent implements OnInit {
       return this.eventInfo;
     });
   }
+
+  
 }

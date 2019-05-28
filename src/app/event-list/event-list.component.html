@@ -1,7 +1,16 @@
-<div *ngFor="let event of eventInfo">
-    <p>{{ event.name }}</p>
-    <p>{{event.dates.start.localDate}}</p>
-    <p *ngIf='event.priceRanges === undefined; else elseBlock'>No Pricing Available</p>
-    <ng-template #elseBlock><p>Tickets: ${{event.priceRanges[0].min}} - ${{event.priceRanges[0].max}}</ng-template>
-    <img src="{{event.images[2].url}}" alt="">
+
+    <!-- <p *ngIf='event.priceRanges === undefined; else elseBlock'>No Pricing Available</p>
+    <ng-template #elseBlock><p>Tickets: ${{event.priceRanges[0].min}} - ${{event.priceRanges[0].max}}</ng-template> -->
+
+<section>
+  <div *ngFor="let event of eventInfo; index as i" class="eventDiv">
+    <p class="name">{{ event.name }}</p>
+    <img src="{{ event.images[1].url }}">
+    <p>{{ event.dates.start.localDate }}</p>
+    <p>{{ event._embedded.venues[0].city.name }}, {{ event._embedded.venues[0].state.stateCode }} {{ event._embedded.venues[0].country.countryCode }}</p>
+    <i class="material-icons" (click)="addFavorite(event)">favorite</i>
+    <a href="{{ event.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
   </div>
+</section>
+
+
