@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -9,10 +9,10 @@ import { ApiService } from '../api.service';
 })
 export class EventListComponent implements OnInit {
 
-  // show: boolean = false;
   favorites: any[];
 
   @Input() eventInfo: any[];
+  @Output() onToggleFav = new EventEmitter<any>();
 
   constructor(private apiService: ApiService) { }
 
@@ -23,5 +23,13 @@ export class EventListComponent implements OnInit {
     this.apiService.favoriteEvent(favEvent);
   }
 
+  // toggle(index: number) {
+  //   this.eventInfo[index].isFavorite = !this.eventInfo[index].isFavorite;
+  //   console.log(index);
+  // }
 
+  color (index: number) {
+    console.log(index);
+    this.eventInfo[index].clicked = true;
+  }
 }

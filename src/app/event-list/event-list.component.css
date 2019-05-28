@@ -45,6 +45,10 @@ i, .ticket {
 
 i {    
     left: 380px;
+}   
+
+i.favRed {
+    color: red;
 }
 
 .ticket {

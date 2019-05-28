@@ -35,6 +35,10 @@ input {
     width: 700px;
 }
 
+input::placeholder {
+    padding: 20px;
+}
+
 button {
     width: 50px;
     margin-left: 20px;

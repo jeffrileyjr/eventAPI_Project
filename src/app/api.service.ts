@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { isFactory } from '@angular/core/src/render3/interfaces/injector';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,7 @@ export class ApiService {
     this.favorites.splice(index, 1);
     return this.favorites;
   }
+
 
 }
  

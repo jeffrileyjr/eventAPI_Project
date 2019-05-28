@@ -96,6 +96,10 @@ i {
     left: 380px;
 }
 
+i.favRed {
+    color: red;
+}
+
 .ticket {
     right: 380px;
 }
