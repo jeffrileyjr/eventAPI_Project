@@ -45,7 +45,15 @@ export class SearchCriteriaComponent implements OnInit {
   }
 
   filterByDate() {
-
+    this.eventInfo.sort((a, b) => {
+      if(a.dates.start.localDate > b.dates.start.localDate) {
+        return 1;
+      } else if (a.dates.start.localDate < b.dates.start.localDate) {
+        return -1;
+      } else {
+        return 0;
+      }
+    })
   }
   
   filterByPrice() {
