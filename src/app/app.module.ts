@@ -17,6 +17,7 @@ const appRoutes: Routes = [
   { path: "bucket-list-page", component: BucketListPageComponent }
 ];
 
+
 @NgModule({
   declarations: [
     AppComponent,

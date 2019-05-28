@@ -1,11 +1,33 @@
-<!-- <button (click)="searchTicketmaster()">Get Ticket Data</button> -->
-
-<form #eventForm="ngForm" (ngSubmit)="searchTicketmaster(eventForm)">
-  <label for="">What are you doing tonight?</label>
-  <div>
+ <nav>
+   <div class="dropdown">
+     <button class="dropbtn">Change Location</button>
+     <div class="dropdown_content">
+       <a href="#"(click)="changeLocation('Lansing')">Lansing</a>
+       <a href="#"(click)="changeLocation('Grand Rapids')">Grand Rapids</a>
+       <a href="#" (click)="changeLocation('Cleveland')">Cleveland</a>
+       <a href="#" (click)="changeLocation('Cincinnati')">Cincinnati</a>
+       <a href="#" (click)="changeLocation('Indianapolis')">Indianapolis</a>
+       <a href="#" (click)="changeLocation('Chicago')">Chicago</a>
+     </div>
+   </div>
+ </nav>
+ 
+ <form #eventForm="ngForm" (ngSubmit)="searchTicketmaster(eventForm)">
+    <label for="">What are doing tonight? </label>
     <input type="text" name="eventSearch" placeholder="Search by team, artist, event, or venue" ngModel>
-    <button><i class="material-icons">search</i></button>
+    <button>Search</button>
+  </form>
+  <div>
+    <button (click)="filterByDate()">Sort by Date</button>
   </div>
-</form>
-
-<event-list [eventInfo]="eventInfo"></event-list>
+  <div>
+    <button (click)="fetchComedy()">Comedy</button>
+    <button (click)="fetchMLB()">MLB</button>
+    <button (click)="fetchNFL()">NFL</button>
+    <button (click)="fetchMusic()">Music</button>
+    <button (click)="fetchTheatre()">Theatre</button>
+  </div>
+  <event-list
+  [eventInfo] = "eventInfo"
+ ></event-list>
+ 

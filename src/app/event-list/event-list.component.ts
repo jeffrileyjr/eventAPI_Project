@@ -13,10 +13,13 @@ export class EventListComponent implements OnInit {
 
   @Input() eventInfo: any[];
   @Output() onToggleFav = new EventEmitter<any>();
+  @Input() filteredData: any [];
+
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+
   }
 
   addFavorite(favEvent) {

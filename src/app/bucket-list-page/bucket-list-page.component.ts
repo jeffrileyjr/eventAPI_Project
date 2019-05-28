@@ -9,8 +9,8 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class BucketListPageComponent implements OnInit {
 
-  // @Input() favorites: any;
-  favorites: any[];
+  @Input() favorites: any;
+  // favorites: any[];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
