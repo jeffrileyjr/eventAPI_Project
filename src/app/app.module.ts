@@ -14,6 +14,7 @@ const appRoutes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   { path: "search-criteria", component: SearchCriteriaComponent },
+  { path: "event-list", component: EventListComponent },
   { path: "bucket-list-page", component: BucketListPageComponent }
 ];
 

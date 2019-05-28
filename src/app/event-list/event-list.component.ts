@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'event-list',
@@ -14,7 +15,7 @@ export class EventListComponent implements OnInit {
 
   @Input() eventInfo: any[];
 
-  constructor(private apiService: ApiService) { }
+  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit() {
 

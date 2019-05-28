@@ -1,13 +1,14 @@
  <nav>
    <div class="dropdown">
-     <button class="dropbtn">Change Location</button>
+     <button class="dropbtn">{{this.tempLocation}}</button>
      <div class="dropdown_content">
-       <a href="#"(click)="changeLocation('Lansing')">Lansing</a>
-       <a href="#"(click)="changeLocation('Grand Rapids')">Grand Rapids</a>
-       <a href="#" (click)="changeLocation('Cleveland')">Cleveland</a>
-       <a href="#" (click)="changeLocation('Cincinnati')">Cincinnati</a>
-       <a href="#" (click)="changeLocation('Indianapolis')">Indianapolis</a>
-       <a href="#" (click)="changeLocation('Chicago')">Chicago</a>
+       <a (click)="changeLocation('Lansing')">Lansing</a>
+       <a (click)="changeLocation('Grand Rapids')">Grand Rapids</a>
+       <a  (click)="changeLocation('Cleveland')">Cleveland</a>
+       <a  (click)="changeLocation('Cincinnati')">Cincinnati</a>
+       <a  (click)="changeLocation('Indianapolis')">Indianapolis</a>
+       <a  (click)="changeLocation('Chicago')">Chicago</a>
+       <a *ngIf="this.tempLocation !== 'Detroit'" (click)="changeLocation('Detroit')">Detroit</a>
      </div>
    </div>
  </nav>
@@ -21,6 +22,7 @@
   </form>
   <div>
     <button (click)="filterByDate()">Sort by Date</button>
+    <button (click)="filterByPrice()">Sort by Price</button>
   </div>
   <div>
     <button (click)="fetchComedy()">Comedy</button>
@@ -32,6 +34,3 @@
   <event-list
   [eventInfo] = "eventInfo"
  ></event-list>
- 
-
-<event-list [eventInfo]="eventInfo"></event-list>

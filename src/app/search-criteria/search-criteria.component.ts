@@ -1,18 +1,20 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { ApiService } from "../api.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "search-criteria",
   templateUrl: "./search-criteria.component.html",
   styleUrls: ["./search-criteria.component.css"],
-  providers: [ApiService]
+  // providers: [ApiService]
 })
 export class SearchCriteriaComponent implements OnInit {
+  tempLocation: string = "Detroit";
   eventInfo: any[] = [];
   // filteredData: any[] = []
   
 
-  constructor(private apiService: ApiService) {
+  constructor(private route: ActivatedRoute, private apiService: ApiService) {
     // this.eventInfo = this.apiService.getTicketmasterData(eventSearch);
   }
 
@@ -20,7 +22,9 @@ export class SearchCriteriaComponent implements OnInit {
     this.apiService.loadTicketmasterData().subscribe(response => {
       this.eventInfo = response["_embedded"].events;
       console.log(response);
+      console.log(this.tempLocation);
       return this.eventInfo;
+
     });
   }
 
@@ -39,6 +43,7 @@ export class SearchCriteriaComponent implements OnInit {
     this.apiService.loadTicketmasterData().subscribe(response => {
       this.eventInfo = response["_embedded"].events;
       console.log(response);
+      this.tempLocation = event;
       return this.eventInfo;
     });
   }
@@ -56,15 +61,15 @@ export class SearchCriteriaComponent implements OnInit {
   }
 
   filterByPrice() {
-    this.eventInfo.sort((a, b) => {
-      if (a.priceRanges[0].min > b.priceRanges[0].min) {
-        return 1;
-      } else if (a.priceRanges[0].min < b.priceRanges[0].min) {
-        return -1;
-      } else {
-        return 0;
-      }
-    });
+    // this.eventInfo.sort((a, b) => {
+    //   if (a.priceRanges[0].min > b.priceRanges[0].min) {
+    //     return 1;
+    //   } else if (a.priceRanges[0].min < b.priceRanges[0].min) {
+    //     return -1;
+    //   } else {
+    //     return 0;
+    //   }
+    // });
   }
   fetchComedy() {
     this.apiService.getComedy().subscribe(response => {
