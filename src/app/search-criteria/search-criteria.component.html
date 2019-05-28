@@ -8,14 +8,15 @@
 
 <nav>
   <div class="dropdown">
-    <button class="dropbtn"><i class="material-icons">location_on</i>  DETROIT  <i class="material-icons">arrow_drop_down</i></button>
+    <button class="dropbtn"><i class="material-icons">location_on</i><span>{{ this.tempLocation }}</span><i class="material-icons">arrow_drop_down</i></button>
     <div class="dropdown_content">
-      <a (click)="changeLocation('Lansing')">Lansing</a>
-      <a (click)="changeLocation('Grand Rapids')">Grand Rapids</a>
-      <a (click)="changeLocation('Cleveland')">Cleveland</a>
-      <a (click)="changeLocation('Cincinnati')">Cincinnati</a>
-      <a (click)="changeLocation('Indianapolis')">Indianapolis</a>
-      <a (click)="changeLocation('Chicago')">Chicago</a>
+      <a (click)="changeLocation('LANSING')">LANSING</a>
+      <a (click)="changeLocation('GRAND RAPIDS')">GRAND RAPIDS</a>
+      <a (click)="changeLocation('CLEVELAND')">CLEVELAND</a>
+      <a (click)="changeLocation('CINCINNATI')">CINCINNATI</a>
+      <a (click)="changeLocation('INDIANAPOLIS')">INDIANAPOLIS</a>
+      <a (click)="changeLocation('CHICAGO')">CHICAGO</a>
+      <a *ngIf="this.tempLocation !== 'DETROIT'" (click)="changeLocation('DETROIT')">DETROIT</a>
     </div>
   </div>
   <div class="dateFilterDiv">

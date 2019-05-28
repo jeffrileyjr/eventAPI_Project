@@ -8,6 +8,7 @@ import { ApiService } from "../api.service";
   providers: [  ]
 })
 export class SearchCriteriaComponent implements OnInit {
+  tempLocation: string = "DETROIT";
   eventInfo: any[] = [];
   shouldBeHidden: boolean = false;
 
@@ -38,6 +39,7 @@ export class SearchCriteriaComponent implements OnInit {
     this.apiService.loadTicketmasterData().subscribe(response => {
       this.eventInfo = response["_embedded"].events;
       console.log(response);
+      this.tempLocation = event;
       return this.eventInfo;
     });
   }
@@ -104,5 +106,7 @@ export class SearchCriteriaComponent implements OnInit {
   toggleDisplay(index: number): void {
     this.eventInfo[index].shouldBeHidden = !this.eventInfo[index].shouldBeHidden;
   }
+  
+
   
 }

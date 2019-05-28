@@ -9,20 +9,24 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class BucketListPageComponent implements OnInit {
 
+  shouldBeHidden: boolean = false;
+
   @Input() favorites: any;
-  favorites: any[];
+  // apiService: any;
+  // favorites: any[];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit() {
     this.favorites = this.apiService.listFavorites();
-    console.log("list fav");
-    
+    console.log("list favs");   
   }
 
   deleteFavorite(index: number) {
     this.favorites = this.apiService.unfavoriteEvent(index);
   }
-
   
+  moreInfoFav(index: number): void {
+    this.favorites[index].shouldBeHidden = !this.favorites[index].shouldBeHidden;
+  }
 }
