@@ -12,6 +12,9 @@
   position: relative;
   display: inline-block;
 }
+.dropdown .dropdown_content {
+  cursor: pointer;
+}
 /* dropdown content hidden by default */
 .dropdown_content {
   display: none;
