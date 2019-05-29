@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ActivatedRoute } from "@angular/router";
 
@@ -10,8 +10,10 @@ import { ActivatedRoute } from "@angular/router";
 export class BucketListPageComponent implements OnInit {
 
   shouldBeHidden: boolean = false;
+  showing: boolean = false;
 
   @Input() favorites: any;
+  @Output() onEventToggle = new EventEmitter<any>();
   // apiService: any;
   // favorites: any[];
 
@@ -28,5 +30,6 @@ export class BucketListPageComponent implements OnInit {
   
   moreInfoFav(index: number): void {
     this.favorites[index].shouldBeHidden = !this.favorites[index].shouldBeHidden;
+    this.showing = !this.showing;
   }
 }
