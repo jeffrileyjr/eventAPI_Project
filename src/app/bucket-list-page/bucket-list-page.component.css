@@ -91,16 +91,14 @@ p {
 }
 
 i, .ticket {
-    border: 1px solid black;
     border-radius: 50%;
     height: 25px;
     width: 25px;
-    background-color: white;
+    color: gray;
 }
 
 i.favRed {
     color: red;
-    border: 1px solid red;
 }
 
 button {
@@ -114,7 +112,10 @@ button {
     margin-right: 20px;
 }
 .moreDetails {
-    background-color: cornsilk;
+    border-radius: 10px;
+    font-family: 'Metrophobic', sans-serif;
+    background-color: rgba(67, 97, 228, 0.863);
+    color: white;
     height: 342px;
     width: 392px;
     margin: 50px;
