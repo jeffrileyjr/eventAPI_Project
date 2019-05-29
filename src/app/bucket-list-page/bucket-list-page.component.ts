@@ -9,26 +9,24 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class BucketListPageComponent implements OnInit {
 
-  // shouldBeHidden: boolean;
+
   showing: boolean = false;
 
   @Input() favorites: any;
   @Input() shouldBeHidden: boolean;
   @Output() onEventToggle = new EventEmitter<any>();
-  // apiService: any;
-  // favorites: any[];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
-
+// on load, shows favorites array
   ngOnInit() {
     this.favorites = this.apiService.listFavorites();
     console.log("list favs");   
   }
-
+// deletes favorites
   deleteFavorite(index: number) {
     this.favorites = this.apiService.unfavoriteEvent(index);
   }
-  
+  // toggles more info to show
   moreInfoFav(index: number): void {
     this.favorites[index].shouldBeHidden = !this.favorites[index].shouldBeHidden;
     this.showing = !this.showing;

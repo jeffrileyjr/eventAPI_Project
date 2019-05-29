@@ -1,4 +1,5 @@
 <section>
+  <!-- generates divs for every event object -->
     <div *ngFor="let event of eventInfo; index as i" class="eventDiv">
       <p class="name">{{ event.name }}</p>
       <img src="{{ event.images[1].url }}" />
@@ -6,15 +7,18 @@
       <p>{{ event._embedded.venues[0].city.name }}, {{ event._embedded.venues[0].state.stateCode }}
         {{ event._embedded.venues[0].country.countryCode }}</p>
       <div class="buttonDiv">
+        <!-- div to hold buttons -->
         <a href="{{ event.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
+        <!-- ngIf on button that toggles more info to show and changes text of button based on state -->
         <button *ngIf="event.shouldBeHidden === true; else goBack" (click)="moreInfo(i)">Go Back</button>
         <ng-template #goBack><button (click)="moreInfo(i)">More Info...</button></ng-template>
         <i class="material-icons" (click)="[addFavorite(event), color(i)]" [ngClass]="{'favRed': event.clicked}">favorite</i>
       </div>
   
-      
+      <!-- more details div that shows more details for user -->
       <div class="moreDetails animated flipInY" *ngIf="eventInfo[i].shouldBeHidden">
           <ul>
+            <!-- the ngIfs show event info if available, if not uses placeholder text -->
         <li *ngIf="event._embedded.venues === undefined; else elseNext">
           No Venue Name Unavailable
         </li>

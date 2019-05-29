@@ -20,13 +20,13 @@
                     <a href="{{ fav.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
                     <button *ngIf="fav.shouldBeHidden === true; else goBack" (click)="moreInfoFav(i)">Go Back</button>
                     <ng-template #goBack><button (click)="moreInfoFav(i)">More Info...</button></ng-template>
-                    <!-- <button (click)="moreInfoFav(i)">More Info...</button> -->
                     <i class="material-icons favRed" (click)="deleteFavorite(i)">favorite</i>
                   </div>
               
-                  
+                  <!-- more details div that shows more details for user -->
                   <div class="moreDetails animated flipInY" *ngIf="favorites[i].shouldBeHidden">
                       <ul>
+                        <!-- the ngIfs show event info if available, if not uses placeholder text -->
                     <li *ngIf="fav._embedded.venues === undefined; else elseNext">
                       No Venue Name Unavailable
                     </li>

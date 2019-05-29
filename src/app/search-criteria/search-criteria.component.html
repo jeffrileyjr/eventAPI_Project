@@ -1,3 +1,4 @@
+<!-- Search form for user to search API data -->
 <form #eventForm="ngForm" (ngSubmit)="searchTicketmaster(eventForm)">
   <label for="">What are you doing tonight? </label>
   <div class="searchDiv">
@@ -10,7 +11,7 @@
     <button class="searchBtn"><i class="material-icons">search</i></button>
   </div>
 </form>
-
+<!-- Dropdown menu for user to change locations based on available options -->
 <nav>
   <div class="dropdown">
     <button class="dropbtn">
@@ -33,10 +34,11 @@
     </div>
   </div>
   <div class="dateFilterDiv">
+    <!-- Button to filter event data by date -->
     <button class="dateFilterBtn" (click)="filterByDate()">SORT BY DATE</button>
   </div>
 </nav>
-
+<!-- Buttons for user to select events based on types -->
 <div class="genreDiv">
   <div
     class="genreBtn"
@@ -74,7 +76,7 @@
     <p>THEATRE</p>
   </div>
 </div>
-
+<!-- Below shows events that load by default -->
 <h1>RECOMMENDED FOR YOU</h1>
 
 <event-list

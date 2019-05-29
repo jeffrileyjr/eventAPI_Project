@@ -24,29 +24,24 @@ export class EventListComponent implements OnInit {
   ngOnInit() {
 
   }
-
+  // method to add favorites to favorite array
   addFavorite(favEvent) {
     console.log("add fav");
     this.apiService.favoriteEvent(favEvent);
   }
 
-
+  // changes color of heart icon when clicked
   color (index: number) {
     console.log(index);
     this.eventInfo[index].clicked = true;
   }
 
-  
+  // brings up more info for user to see
   moreInfo(index: number): void {
     this.onEventToggle.emit(index);
     this.buttonText = "Go Back";
     this.showing = !this.showing;
   }
-  goBack(index: number):void {
-    this.onEventToggle.emit(index);
-    this.showing = !this.showing;
-  }
-
 }
 
 
