@@ -13,7 +13,7 @@
       </div>
   
       
-      <div class="moreDetails" *ngIf="eventInfo[i].shouldBeHidden">
+      <div class="moreDetails animated flipInY" *ngIf="eventInfo[i].shouldBeHidden">
           <ul>
         <li *ngIf="event._embedded.venues === undefined; else elseNext">
           No Venue Name Unavailable
