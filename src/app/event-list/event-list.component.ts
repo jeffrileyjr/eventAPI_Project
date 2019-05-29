@@ -10,6 +10,8 @@ export class EventListComponent implements OnInit {
 
   favorites: any[];
   showing: boolean = false;
+  buttonText: string ="More Info...";
+  @Input() shouldBeHidden: boolean;
   @Input() eventInfo: any[];
   // @Output() onToggleFav = new EventEmitter<any>();
   @Input() filteredData: any [];
@@ -37,6 +39,7 @@ export class EventListComponent implements OnInit {
   
   moreInfo(index: number): void {
     this.onEventToggle.emit(index);
+    this.buttonText = "Go Back";
     this.showing = !this.showing;
   }
   goBack(index: number):void {
