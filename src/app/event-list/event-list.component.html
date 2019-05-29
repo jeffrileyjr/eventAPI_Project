@@ -9,7 +9,6 @@
         <a href="{{ event.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
         <button *ngIf="event.shouldBeHidden === true; else goBack" (click)="moreInfo(i)">Go Back</button>
         <ng-template #goBack><button (click)="moreInfo(i)">More Info...</button></ng-template>
-        <!-- <button (click)="moreInfo(i)">{{buttonText}}</button> -->
         <i class="material-icons" (click)="[addFavorite(event), color(i)]" [ngClass]="{'favRed': event.clicked}">favorite</i>
       </div>
   

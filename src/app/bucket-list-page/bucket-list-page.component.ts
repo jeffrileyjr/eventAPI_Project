@@ -9,10 +9,11 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class BucketListPageComponent implements OnInit {
 
-  shouldBeHidden: boolean = false;
+  // shouldBeHidden: boolean;
   showing: boolean = false;
 
   @Input() favorites: any;
+  @Input() shouldBeHidden: boolean;
   @Output() onEventToggle = new EventEmitter<any>();
   // apiService: any;
   // favorites: any[];

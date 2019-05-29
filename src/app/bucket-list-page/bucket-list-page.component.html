@@ -18,7 +18,9 @@
             {{ fav._embedded.venues[0].country.countryCode }}</p>
             <div class="buttonDiv">
                     <a href="{{ fav.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
-                    <button (click)="moreInfoFav(i)">More Info...</button>
+                    <button *ngIf="fav.shouldBeHidden === true; else goBack" (click)="moreInfoFav(i)">Go Back</button>
+                    <ng-template #goBack><button (click)="moreInfoFav(i)">More Info...</button></ng-template>
+                    <!-- <button (click)="moreInfoFav(i)">More Info...</button> -->
                     <i class="material-icons favRed" (click)="deleteFavorite(i)">favorite</i>
                   </div>
               
