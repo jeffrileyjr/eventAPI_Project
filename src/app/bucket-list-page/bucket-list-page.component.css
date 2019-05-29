@@ -124,3 +124,6 @@ button {
     top: -65px;
     z-index: 1;
 }
+.venue {
+    border-radius: 0;
+}

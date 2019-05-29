@@ -74,6 +74,10 @@ button {
 }
 
 .moreDetails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     border-radius: 10px;
     font-family: 'Metrophobic', sans-serif;
     background-color: rgba(67, 97, 228, 0.863);
@@ -86,10 +90,6 @@ button {
     top: -65px;
     z-index: 1;
 }
-
-
-
-
-
-
-
+.venue {
+    border-radius: 0;
+}
