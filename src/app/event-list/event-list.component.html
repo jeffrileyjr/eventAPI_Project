@@ -1,4 +1,58 @@
 <section>
+    <div *ngFor="let event of eventInfo; index as i" class="eventDiv">
+      <p class="name">{{ event.name }}</p>
+      <img src="{{ event.images[1].url }}" />
+      <p>{{ event.dates.start.localDate }}</p>
+      <p>{{ event._embedded.venues[0].city.name }}, {{ event._embedded.venues[0].state.stateCode }}
+        {{ event._embedded.venues[0].country.countryCode }}</p>
+      <div class="buttonDiv">
+        <a href="{{ event.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
+        <button (click)="moreInfo(i)">More Info...</button>
+        <i class="material-icons" (click)="[addFavorite(event), color(i)]" [ngClass]="{'favRed': event.clicked}">favorite</i>
+      </div>
+  
+      
+      <div class="moreDetails" *ngIf="eventInfo[i].shouldBeHidden">
+          <ul>
+        <li *ngIf="event._embedded.venues === undefined; else elseNext">
+          No Venue Name Unavailable
+        </li>
+        <ng-template #elseNext
+          ><li>{{ event._embedded.venues[0].name }}</li></ng-template
+        >
+        <li *ngIf="event._embedded.venues === undefined; else elseVenue">
+          Venue Address Unavailable
+        </li>
+        <ng-template #elseVenue
+          ><li>
+            Address: {{ event._embedded.venues[0].address.line1 }}
+          </li></ng-template
+        >
+        <li *ngIf="event.priceRanges === undefined; else elsePricing">
+          No Pricing Available
+        </li>
+        <ng-template #elsePricing
+          ><li>
+            Tickets: {{ event.priceRanges[0].min | currency }} - {{
+              event.priceRanges[0].max | currency
+            }}
+          </li></ng-template
+        >
+        <li *ngIf="event.promoter === undefined; else elsePromoter">
+          Event Description Unavailable
+        </li>
+        <ng-template #elseBlock
+          ><li>{{ event.promoter.description }}</li></ng-template
+        >
+        <img src="{{event.seatmap.staticUrl}}" style="width:100%" alt="venue map">
+      </ul>
+      <span *ngIf="showing" (click)="goBack(i)">Go Back</span>
+      </div>
+  
+    </div>
+  </section>
+  
+<!-- <section>
   <div *ngFor="let event of eventInfo; index as i" class="eventDiv">
     <p class="name">{{ event.name }}</p>
     <img src="{{ event.images[1].url }}">
@@ -18,5 +72,5 @@
     <a href="{{ event.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
   </div>
 </section>
-
+ -->
 
