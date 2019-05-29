@@ -68,6 +68,12 @@ nav {
   font-size: 14px;
 }
 
+.dropbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* dropdown div */
 .dropdown {
   display: flex;

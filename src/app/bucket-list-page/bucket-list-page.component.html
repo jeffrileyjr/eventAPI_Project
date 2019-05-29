@@ -14,14 +14,43 @@
         <p class="name">{{ fav.name }}</p>
         <img class="eventImg" src="{{ fav.images[1].url }}">
         <p>{{ fav.dates.start.localDate }}</p>
-        <p>{{ fav._embedded.venues[0].city.name }}, {{ fav._embedded.venues[0].state.stateCode }} {{ fav._embedded.venues[0].country.countryCode }}</p>
-        <i class="material-icons favRed" (click)="deleteFavorite(i)">favorite</i>
-        <a href="{{ fav.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
+        <p>{{ fav._embedded.venues[0].city.name }}, {{ fav._embedded.venues[0].state.stateCode }}
+            {{ fav._embedded.venues[0].country.countryCode }}</p>
+        <div class="buttonDiv">
+            <a href="{{ fav.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
+            <button (click)="moreInfoFav(i)">More Info...</button>
+            <i class="material-icons favRed" (click)="deleteFavorite(i)">favorite</i>
+        </div>
+
+        <ul>
+            <div *ngIf="favorites[i].shouldBeHidden">
+                <li *ngIf="fav._embedded.venues === undefined; else elseBlock">No Name Available</li>
+                <ng-template #elseBlock>
+                    <li>{{ fav._embedded.venues[0].name }}</li>
+                </ng-template>
+            </div>
+
+            <div *ngIf="favorites[i].shouldBeHidden">
+                <li *ngIf="fav._embedded.venues[0].address.line1 === undefined; else elseBlock">No address Available
+                </li>
+                <ng-template #elseBlock>
+                    <li>{{ fav._embedded.venues[0].address.line1 }}</li>
+                </ng-template>
+            </div>
+
+            <div *ngIf="favorites[i].shouldBeHidden">
+                <li *ngIf='fav.priceRanges === undefined; else elseBlock'>No Pricing Available</li>
+                <ng-template #elseBlock>
+                    <li>Tickets: ${{fav.priceRanges[0].min}} - ${{fav.priceRanges[0].max}}</li>
+                </ng-template>
+            </div>
+
+            <div *ngIf="favorites[i].shouldBeHidden">
+                <li *ngIf="fav.promoter === undefined; else elseBlock">No Description Available</li>
+                <ng-template #elseBlock>
+                    <li>{{ fav.promoter.description }}</li>
+                </ng-template>
+            </div>
+        </ul>
     </div>
 </section>
-
-
-<!-- <div *ngIf="favorites[i].shouldBeHidden">
-        <li *ngIf='fav.priceRanges === undefined; else elseBlock'>No Pricing Available</li>
-        <ng-template #elseBlock><li>Tickets: ${{fav.priceRanges[0].min}} - ${{fav.priceRanges[0].max}}</li></ng-template>
-      </div> -->

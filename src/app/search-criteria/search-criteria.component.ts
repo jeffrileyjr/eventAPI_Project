@@ -107,4 +107,6 @@ export class SearchCriteriaComponent implements OnInit {
     this.eventInfo[index].shouldBeHidden = !this.eventInfo[index].shouldBeHidden;
   }
   
+
+  
 }
