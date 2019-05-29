@@ -125,6 +125,7 @@ nav {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
+  cursor: pointer;
 }
 
 p {

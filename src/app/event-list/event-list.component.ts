@@ -26,6 +26,7 @@ export class EventListComponent implements OnInit {
   }
   // method to add favorites to favorite array
   addFavorite(favEvent) {
+    console.log(favEvent);
     console.log("add fav");
     this.apiService.favoriteEvent(favEvent);
   }
