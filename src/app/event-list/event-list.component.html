@@ -7,7 +7,11 @@
       {{ event._embedded.venues[0].country.countryCode }}</p>
     <div class="buttonDiv">
       <a href="{{ event.url }}" target="_blank"><img class="ticket" src="../../assets/ticket.png"></a>
-      <button (click)="moreInfo(i)">More Info...</button>
+
+    <button (click)="moreInfo(i)">More Info</button>
+      <!-- <button (click)="moreInfo(i)">{{ event.buttonText }}</button> -->
+        <!-- <ng-template #show><button>Go Back</button></ng-template>*ngIf="eventInfo[i].shouldBeHidden; else show" -->
+
       <i class="material-icons" (click)="[addFavorite(event), color(i)]" [ngClass]="{'favRed': event.clicked}">favorite</i>
     </div>
 

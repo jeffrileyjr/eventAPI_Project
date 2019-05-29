@@ -9,18 +9,14 @@ import { ApiService } from '../api.service';
 export class EventListComponent implements OnInit {
 
   favorites: any[];
-  showing: boolean = false;
+  // showing: boolean = true;
   @Input() eventInfo: any[];
-  // @Output() onToggleFav = new EventEmitter<any>();
   @Input() filteredData: any [];
   @Output() onEventToggle = new EventEmitter<any>();
-
-
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-
   }
 
   addFavorite(favEvent) {
@@ -28,21 +24,19 @@ export class EventListComponent implements OnInit {
     this.apiService.favoriteEvent(favEvent);
   }
 
-
   color (index: number) {
     console.log(index);
     this.eventInfo[index].clicked = true;
   }
 
-  
   moreInfo(index: number): void {
     this.onEventToggle.emit(index);
-    this.showing = !this.showing;
   }
-  goBack(index: number):void {
-    this.onEventToggle.emit(index);
-    this.showing = !this.showing;
-  }
+
+  // goBack(index: number):void {
+  //   this.onEventToggle.emit(index);
+  //   this.showing = !this.showing;
+  // }
 
 }
 

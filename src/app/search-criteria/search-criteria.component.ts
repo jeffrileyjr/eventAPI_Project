@@ -11,6 +11,7 @@ export class SearchCriteriaComponent implements OnInit {
   tempLocation: string = "DETROIT";
   eventInfo: any[] = [];
   shouldBeHidden: boolean = false;
+  buttonText: string = "More Info...";
 
   // filteredData: any[] = []
   
@@ -105,6 +106,8 @@ export class SearchCriteriaComponent implements OnInit {
 
   toggleDisplay(index: number): void {
     this.eventInfo[index].shouldBeHidden = !this.eventInfo[index].shouldBeHidden;
+    this.buttonText = "Go Back";
+
   }
   
 
